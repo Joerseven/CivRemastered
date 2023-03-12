@@ -1,0 +1,15 @@
+"filename", "language", "Lua", "comment", "blank", "total"
+"d:\CivRemasteredKnit\src\ServerStorage\Components\Actions.lua", "Lua", 191, 1, 44, 236
+"d:\CivRemasteredKnit\src\ServerStorage\Components\ArchTask.lua", "Lua", 8, 2, 4, 14
+"d:\CivRemasteredKnit\src\ServerStorage\Components\FarmingTask.lua", "Lua", 8, 2, 4, 14
+"d:\CivRemasteredKnit\src\ServerStorage\Components\IdleTask.lua", "Lua", 10, 0, 4, 14
+"d:\CivRemasteredKnit\src\ServerStorage\Components\MiningTask.lua", "Lua", 8, 2, 4, 14
+"d:\CivRemasteredKnit\src\ServerStorage\Components\SmithTask.lua", "Lua", 7, 0, 4, 11
+"d:\CivRemasteredKnit\src\ServerStorage\Components\Tasks.lua", "Lua", 98, 0, 33, 131
+"d:\CivRemasteredKnit\src\ServerStorage\Components\WorkedTileManager.lua", "Lua", 0, 0, 1, 1
+"d:\CivRemasteredKnit\src\ServerStorage\Components\Worker.lua", "Lua", 304, 39, 105, 448
+"d:\CivRemasteredKnit\src\ServerStorage\Components\WorkerManager.lua", "Lua", 170, 65, 46, 281
+"d:\CivRemasteredKnit\src\ServerStorage\Components\WorkerTask.lua", "Lua", 8, 2, 4, 14
+"d:\CivRemasteredKnit\src\ServerStorage\Components\actions\JumpTo.lua", "Lua", 0, 0, 1, 1
+"d:\CivRemasteredKnit\src\ServerStorage\Components\actions\WorkAction.lua", "Lua", 0, 0, 1, 1
+"Total", "-", 812, 113, 255, 1180

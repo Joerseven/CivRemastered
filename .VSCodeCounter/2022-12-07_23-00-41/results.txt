@@ -1,0 +1,39 @@
+Date : 2022-12-07 23:00:41
+Directory : d:\CivRemasteredKnit\src\ServerStorage\Services
+Total : 15 files,  1263 codes, 42 comments, 384 blanks, all 1689 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Lua      |         15 |      1,263 |         42 |        384 |      1,689 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         15 |      1,263 |         42 |        384 |      1,689 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                    | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\CivRemasteredKnit\src\ServerStorage\Services\ErrorService.lua            | Lua      |         14 |          0 |          6 |         20 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\EventService.lua            | Lua      |         55 |          0 |          9 |         64 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\FactionService.lua          | Lua      |         41 |          0 |         13 |         54 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\GameService.lua             | Lua      |          9 |          0 |          5 |         14 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\GrowTileService.lua         | Lua      |         61 |          0 |         23 |         84 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\PathfindingBlockService.lua | Lua      |         35 |         10 |         13 |         58 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\RaiseTileService.lua        | Lua      |         61 |          2 |         24 |         87 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\SaveService.lua             | Lua      |        229 |         20 |         60 |        309 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\SettlementService.lua       | Lua      |        259 |          7 |         91 |        357 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\StateService.lua            | Lua      |         12 |          0 |          6 |         18 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\TileService.lua             | Lua      |         96 |          0 |         31 |        127 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\TweenService.lua            | Lua      |         12 |          0 |          5 |         17 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\WorkedTileService.lua       | Lua      |        127 |          1 |         41 |        169 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\WorkerService.lua           | Lua      |        111 |          0 |         23 |        134 |
+| d:\CivRemasteredKnit\src\ServerStorage\Services\WorkspaceService.lua        | Lua      |        141 |          2 |         34 |        177 |
+| Total                                                                       |          |      1,263 |         42 |        384 |      1,689 |
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
