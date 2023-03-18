@@ -99,7 +99,7 @@ function SaveService:_SerializeWorkspace(pWorkspace: Model)
 
 		local length = HttpService:JSONEncode(itemData):len()
 
-		local maxLength = 15000 --3950000
+		local maxLength = 3000000
 
 		if metaData.Length + length > maxLength then -- Safety buffer
 			metaData.Chunks += 1
@@ -112,6 +112,7 @@ function SaveService:_SerializeWorkspace(pWorkspace: Model)
 
 		currentChunk[#currentChunk + 1] = itemData
 	end
+	print(saveData)
 	return saveData
 end
 
@@ -167,7 +168,7 @@ function SaveService:SaveWorkspace(player: Player, slot: number)
 		local prefix = ""
 
 		if game:GetService("RunService"):IsStudio() then
-			-- zprefix = "studio"
+			prefix = "studio"
 		end
 
 		SaveDataStore:SetAsync(prefix .. "p" .. player.UserId .. "s" .. slot, metadata, { player.UserId })

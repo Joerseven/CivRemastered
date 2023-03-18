@@ -383,7 +383,7 @@ function Worker:Harvest(target: Model)
 
 		local delay = task.delay(10, function()
 			con:Disconnect()
-			self:HoldSupply(target:GetAttribute("supply") * 30)
+			self:HoldSupply(target:GetAttribute("supply"))
 			self.animation = "idle"
 			resolve()
 		end)
