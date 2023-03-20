@@ -42,6 +42,10 @@ function WorkedTileService:Add(player, name, pWorkspace, position, attributes)
 	local ownerId = self.WorkspaceService:GetWorkspacePlayer(pWorkspace)
 
 	table.insert(self.WorkTiles[ownerId], tile)
+	self.PathfindingService:AddNode(tile, pWorkspace)
+	tile.Destroying:Connect(function()
+		self.PathfindingService:RemoveNode(tile, pWorkspace)
+	end)
 
 	return tile
 end
@@ -52,7 +56,7 @@ function WorkedTileService:DataToInstance(data: table, pWorkspace: Model, deseri
 	return self:Add(false, name, pWorkspace, tilePosition, data.Attributes)
 end
 
-function WorkedTileService:InstanceToData(instance: Model , id: number, workspacePosition: CFrame, serialize)
+function WorkedTileService:InstanceToData(instance: Model, id: number, workspacePosition: CFrame, serialize)
 	local itemData = {}
 	itemData["Id"] = id
 	itemData["CFrame"] = serialize(workspacePosition:ToObjectSpace(instance:GetPivot()))
@@ -79,7 +83,7 @@ function WorkedTileService:WorkTile(player, tile, settlement, pivot)
 		return false
 	end
 
-	if not (#self:GetWorkedTiles(settlement) < math.floor(Tiles.Main[settlement.Name].capacity / 2)+.5) then
+	if not (#self:GetWorkedTiles(settlement) < math.floor(Tiles.Main[settlement.Name].capacity / 2) + 0.5) then
 		warn("You've already claimed the maximum amount of tiles!")
 		return false
 	end
@@ -93,11 +97,12 @@ function WorkedTileService:WorkTile(player, tile, settlement, pivot)
 	local position = pivot
 
 	tile:Destroy()
+
 	local wTile = WorkedTileService:Add(player, workTileName, pWorkspace, position)
 
 	self:ClaimTile(wTile, settlement)
 
-	local tSettle = self.SettlementService:GetSettlementTable(settlement,  player.UserId)
+	local tSettle = self.SettlementService:GetSettlementTable(settlement, player.UserId)
 	SoundPlayer.playSound(SoundService.workSound, wTile)
 	--tSettle.workers:SignalIdleWorkers()
 end
@@ -147,7 +152,6 @@ function WorkedTileService:DeleteTile(player, tile)
 end
 
 function WorkedTileService:RemoveTile(tile)
-
 	local ownerId = self.WorkspaceService:GetWorkspacePlayer(tile.Parent)
 
 	tRemove(self.WorkTiles[ownerId], function(t, i)
@@ -169,6 +173,7 @@ function WorkedTileService:KnitStart()
 	self.WorkspaceService = Knit.GetService("WorkspaceService")
 	self.GrowTileService = Knit.GetService("GrowTileService")
 	self.RaiseTileService = Knit.GetService("RaiseTileService")
+	self.PathfindingService = Knit.GetService("PathfindingService")
 end
 
 function WorkedTileService.Client:WorkTile(...)

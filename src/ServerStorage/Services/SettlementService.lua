@@ -46,6 +46,7 @@ function SettlementService:KnitStart()
 	self.FactionService = Knit.GetService("FactionService")
 	self.WorkedTileService = Knit.GetService("WorkedTileService")
 	self.WorkerService = Knit.GetService("WorkerService")
+	self.PathfindingService = Knit.GetService("PathfindingService")
 	playerError = function(player, error)
 		Knit.GetService("ErrorService"):ErrorPopup(player, error)
 	end
@@ -246,6 +247,11 @@ function SettlementService:Add(position, pWorkspace, basetile, level, attributes
 	basetile.Parent = s.tile
 
 	s.tile.Parent = pWorkspace
+
+	self.PathfindingService:AddNode(basetile, pWorkspace)
+	s.tile.Destroying:Connect(function()
+		self.PathfindingService:RemoveNode(basetile, pWorkspace)
+	end)
 
 	s.workers = WorkerManager.new(s, self.FactionService:GetSettlementFactionColor(s.tile), function()
 		return self.WorkedTileService:GetWorkedTiles(s.tile)

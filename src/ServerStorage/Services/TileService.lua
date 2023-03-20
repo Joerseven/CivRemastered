@@ -68,6 +68,7 @@ end
 
 function TileService:KnitStart()
 	self.PermissionService = Knit.GetService("PermissionService")
+	self.PathfindingService = Knit.GetService("PathfindingService")
 end
 
 function TileService:DataToInstance(data: table, pWorkspace: Model, deserialize)
@@ -88,6 +89,10 @@ function TileService:Add(name: string, pWorkspace, position: Vector3, _)
 	local tile = ReplicatedStorage.Placeables.Tile[name]:Clone()
 	tile.Position = position
 	tile.Parent = pWorkspace
+	self.PathfindingService:AddNode(tile, pWorkspace)
+	tile.Destroying:Connect(function()
+		self.PathfindingService:RemoveNode(tile, pWorkspace)
+	end)
 	return tile
 end
 
@@ -125,6 +130,8 @@ function TileService:DeleteTile(player, tile, finsert)
 	end
 
 	self:_CreateExplosion(self:_GetPosition(tile))
+
+	self.PathfindingService:RemoveNode(tile, tile.Parent)
 
 	tile:Destroy()
 

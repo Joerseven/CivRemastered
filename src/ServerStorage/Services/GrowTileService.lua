@@ -19,6 +19,7 @@ function GrowTileService:KnitStart()
 	Knit.GetService("TileService").__index = Knit.GetService("TileService")
 	setmetatable(GrowTileService, Knit.GetService("TileService"))
 	self.TweenService = Knit.GetService("TweenService")
+	self.PathfindingService = Knit.GetService("PathfindingService")
 end
 
 function GrowTileService:DataToInstance(data: table, pWorkspace: Model, deserialize)
@@ -47,6 +48,10 @@ function GrowTileService:Add(name, pWorkspace, position, beforeParent)
 	end
 
 	tile.Parent = pWorkspace
+	self.PathfindingService:AddNode(tile, pWorkspace)
+	tile.Destroying:Connect(function()
+		self.PathfindingService:RemoveNode(tile, pWorkspace)
+	end)
 	return tile
 end
 

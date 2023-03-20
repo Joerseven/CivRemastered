@@ -45,6 +45,7 @@ function EventService:LoadPlayer()
 		self._Services.PermissionService:PlayerAdded(player)
 		self._Services.WorkedTileService:PlayerAdded(player)
 		self._Services.SettlementService:PlayerAdded(player)
+		self._Services.PathfindingService:PlayerAdded(player)
 
 		self._Maids[player.UserId] = Maid.new()
 
