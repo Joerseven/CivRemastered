@@ -161,7 +161,7 @@ function Worker:CreatePath(target: Vector3, isOut: boolean)
 			AgentCanJump = false,
 			WaypointSpacing = 1,
 			Costs = {
-				NoGoZone = math.huge,
+				NoGoZone = 10000,
 				Foil = math.huge,
 			},
 		})
