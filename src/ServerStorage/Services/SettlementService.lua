@@ -279,7 +279,16 @@ function SettlementService:Add(position, pWorkspace, basetile, level, attributes
 	s.workers:UpdateWorkers()
 end
 
+function SettlementService:CreateExistingSettlementBillboards(userid)
+	for _, v in self.Settlements[userid] do
+		self:CreateBillboard(v.tile)
+	end
+end
+
 function SettlementService:PlayerAdded(player)
+	for playerid in pairs(self.Settlements) do
+		self:CreateExistingSettlementBillboards(playerid)
+	end
 	self.Settlements[player.UserId] = {}
 end
 

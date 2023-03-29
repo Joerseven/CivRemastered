@@ -208,7 +208,16 @@ function GUIController:CreateSettlementPrompt(parent)
 end
 
 function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, factionColor)
+
+	for _, child in pairs(self.ScreenGui:GetChildren()) do
+		if child:IsA("BillboardGui") and child.Adornee == adornee.BaseTile then
+			warn("Already has a billboard")
+			return
+		end
+	end
+
 	local billboard = Instance.new("BillboardGui")
+	billboard.Name = "SettleInfo"
 	billboard.Size = UDim2.fromScale(12, 6.4)
 	billboard.SizeOffset = Vector2.new(0, 2)
 	billboard.Parent = self.ScreenGui
