@@ -73,6 +73,7 @@ end
 
 function WorkedTileService:WorkTile(player, tile, settlement, pivot)
 	local pWorkspace = tile.Parent
+	local ownerId = self.WorkspaceService:GetWorkspacePlayer(tile.Parent)
 
 	if not self:_CheckPermissions(player, pWorkspace) then
 		warn("You don't have permission to change this tile.")
@@ -93,11 +94,12 @@ function WorkedTileService:WorkTile(player, tile, settlement, pivot)
 	local position = pivot
 
 	tile:Destroy()
+	-- Player is unused here, should be owner id
 	local wTile = WorkedTileService:Add(player, workTileName, pWorkspace, position)
 
 	self:ClaimTile(wTile, settlement)
 
-	local tSettle = self.SettlementService:GetSettlementTable(settlement,  player.UserId)
+	local tSettle = self.SettlementService:GetSettlementTable(settlement, ownerId)
 	SoundPlayer.playSound(SoundService.workSound, wTile)
 	--tSettle.workers:SignalIdleWorkers()
 end
