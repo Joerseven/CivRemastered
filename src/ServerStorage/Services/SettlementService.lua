@@ -386,8 +386,8 @@ function SettlementService:DeleteTile(player, tile)
 	settleTable.workers:Kill()
 
 	--settleTable.workers:UpdateTable(self.WorkerTable, tile:GetAttribute("name") .. player.UserId)
-	local wslot = self.WorkspaceService:GetSlotFromPlayerId(player.UserId)
-	self:DeleteSettleFromWorkerTable("w" .. wslot .. tile:GetAttribute("name") .. player.UserId)
+	local wslot = self.WorkspaceService:GetSlotFromPlayerId(settlePlayer)
+	self:DeleteSettleFromWorkerTable("w" .. wslot .. tile:GetAttribute("name") .. settlePlayer)
 
 	local ownerId = self.WorkspaceService:GetWorkspacePlayer(tile.Parent)
 	self.Settlements[ownerId][name] = nil
