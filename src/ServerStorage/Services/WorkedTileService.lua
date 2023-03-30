@@ -126,6 +126,8 @@ function WorkedTileService:DeleteTile(player, tile)
 		return false
 	end
 
+	local tileOwner = self.WorkspaceService:GetWorkspacePlayer(tile.Parent)
+
 	if not Tiles.Main[tile.Name] then
 		warn("You can't delete this")
 	end
@@ -137,7 +139,7 @@ function WorkedTileService:DeleteTile(player, tile)
 	local claimee = self:GetClaimee(tile)
 
 	if claimee then
-		local claimeeTile = self.SettlementService:GetSettlementC(player.UserId, claimee)
+		local claimeeTile = self.SettlementService:GetSettlementC(tileOwner, claimee)
 		if claimeeTile then
 			self.SettlementService:UpdateClaimed(claimeeTile)
 		end
