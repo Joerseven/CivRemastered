@@ -147,6 +147,10 @@ function Worker:TeleportBack(waitTime)
 			:andThen(function()
 				self.animation = "idle"
 				resolve()
+			end):catch(function(err)
+				if not self:GetSettlementModel() then
+					print("Worker has no settlement model")
+				end
 			end)
 	end)
 end
