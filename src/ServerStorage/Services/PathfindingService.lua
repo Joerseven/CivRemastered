@@ -137,27 +137,29 @@ function PathfindingService:RemoveNode(object, pWorkspace)
     end
 
 	for index in pairs(self.Graph[pWorkspace][part]) do
-        print(self.Graph[pWorkspace][part])
 		self.Graph[pWorkspace][index][part] = nil
 	end
 
 	self.Graph[pWorkspace][part] = nil
-
-    print("Hello?")
 end
 
 function PathfindingService:PrintGraph()
 	print(self.Graph)
 end
 
-function PathfindingService:GetPath(start: Vector2, goal: Vector2, pWorkspace, validChecker)
-	local startNode = self:GetClosestNode(start, pWorkspace)
-	local endNode = self:GetClosestNode(goal, pWorkspace)
+function PathfindingService:GetPath(startNode, endNode, pWorkspace, validChecker)
 
 	if not startNode or not endNode then
 		print("No tiles connected to the start points!")
 		return nil
 	end
+
+	if not self.Graph[pWorkspace][endNode] then
+		print("End node is not in the graph!")
+		return nil
+	end
+
+	local goal = Vector2.new(endNode:GetPivot().Position.X, endNode:GetPivot().Position.Z)
 
 	local openSet = { startNode }
 	local finished = {}
@@ -212,7 +214,7 @@ function PathfindingService:GetPath(start: Vector2, goal: Vector2, pWorkspace, v
 				continue
 			end
 
-			local currentPosition = Vector2.new(node.Position.X, node.Position.Y)
+			local currentPosition = Vector2.new(node.Position.X, node.Position.Z)
 			local tentativeGScore = gScore[currentNode] + distance
 			local isInOpen = false
 

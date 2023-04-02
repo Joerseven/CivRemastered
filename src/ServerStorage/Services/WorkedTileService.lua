@@ -102,6 +102,8 @@ function WorkedTileService:WorkTile(player, tile, settlement, pivot)
 
 	self:ClaimTile(wTile, settlement)
 
+	local road = self.RoadService:CreateRoad(settlement.BaseTile, wTile.PrimaryPart, pWorkspace)
+
 	local tSettle = self.SettlementService:GetSettlementTable(settlement, player.UserId)
 	SoundPlayer.playSound(SoundService.workSound, wTile)
 	--tSettle.workers:SignalIdleWorkers()
@@ -174,6 +176,7 @@ function WorkedTileService:KnitStart()
 	self.GrowTileService = Knit.GetService("GrowTileService")
 	self.RaiseTileService = Knit.GetService("RaiseTileService")
 	self.PathfindingService = Knit.GetService("PathfindingService")
+	self.RoadService = Knit.GetService("RoadService")
 end
 
 function WorkedTileService.Client:WorkTile(...)
