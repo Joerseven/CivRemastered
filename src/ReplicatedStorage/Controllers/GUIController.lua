@@ -25,6 +25,7 @@ local GUIController = Knit.CreateController({
 	SwitchTimer = 0,
 	LastTask = function() end,
 	CurrentHover = Instance.new("BillboardGui"),
+	ButtonQueue = {},
 })
 
 local activateSound = Instance.new("Sound")
@@ -217,8 +218,11 @@ function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, fac
 	billboard.StudsOffset = Vector3.new(0, -7.5, 0)
 	billboard.Active = true
 
+	self.ButtonQueue[billboard] = 0
+
 	adornee.Destroying:Connect(function()
 		billboard:Destroy()
+		self.ButtonQueue[billboard] = nil
 	end)
 
 	local containerFrame = Component:new("Frame", billboard)
@@ -282,10 +286,10 @@ function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, fac
 		end
 	end)
 
-	self:CreateWorkerButton(adornee)
+	self:CreateBillboardButton(adornee, "Hammer", nil, 25)
 end
 
-function GUIController:CreateWorkerButton(adornee)
+function GUIController:CreateBillboardButton(adornee, buttonName, buttonClick, rotation)
 	local parent = false
 	for _, v in pairs(self.ScreenGui:GetChildren()) do
 		if v:IsA("BillboardGui") and v.Adornee == adornee.BaseTile then
@@ -298,24 +302,30 @@ function GUIController:CreateWorkerButton(adornee)
 		return false
 	end
 
-	if parent:FindFirstChild("AddWorker") then
+	if parent:FindFirstChild("Hammer") then
 		warn("A button already exists")
 		return
 	end
+
+	self.ButtonQueue[parent.Parent] += 1
 
 	local colors = {
 		work = Color3.new(1, 0.8, 0.2),
 		active = Color3.fromRGB(60, 179, 113),
 	}
 
+	local imgUrl = {
+		Hammer = "10555583305",
+		Wagon = "12989680239",
+	}
+
 	local frame = Component:new("Frame", parent)
 		:RCircle(0.9)
-		:Position(1, 0)
-		:Name("AddWorker")
+		:Position(1 - 0.25 * (self.ButtonQueue[parent.Parent] - 1), 0)
+		:Name(buttonName)
 		:Constrain()
 		:BackgroundColor(colors.work)
-
-	frame.i.AnchorPoint = Vector2.new(0.5, 0.5)
+		:Anchor(Vector2.new(0.5, 0.5))
 
 	local button = Component:new("TextButton", frame)
 		:BringForward(5)
@@ -325,38 +335,37 @@ function GUIController:CreateWorkerButton(adornee)
 		:TransparentBackground()
 		:Constrain()
 
-	local hammerImg = Component:new("ImageLabel", frame)
+	local img = Component:new("ImageLabel", frame)
 		:TransparentBackground()
-		:Name("Hammer")
+		:Name(buttonName)
 		:Constrain()
-		:ImageUrl("10555583305")
+		:ImageUrl(imgUrl[buttonName])
 		:Position(0.5, 0.5)
 		:RSize(0.6, 0.6)
+		:Anchor(Vector2.new(0.5, 0.5))
 
-	hammerImg.i.AnchorPoint = Vector2.new(0.5, 0.5)
-	hammerImg.i.ScaleType = Enum.ScaleType.Fit
-	hammerImg.i.Rotation = 25
+	img.i.ScaleType = Enum.ScaleType.Fit
+
+	if rotation then
+		img.i.Rotation = rotation
+	end
 
 	frame:Mount()
 
-	--local pulse = self.TweenController:WorkPulse({object = frame.i})
-
-	frame.i.Destroying:Connect(function()
-		--pulse:Finish()
-	end)
-
 	button.i.MouseButton1Click:Connect(function()
 		self.SelectionController:WorkSelection(function() -- On init function
-			--pulse:Finish()
 			frame:BackgroundColor(colors.active)
-		end, function() -- On Cancel Function
-			--pulse = self.TweenController:WorkPulse({object = frame.i})
+		end, function()
 			frame:BackgroundColor(colors.work)
 		end, adornee)
 	end)
+
+	button.i.Destroying:Connect(function()
+		self.ButtonQueue[parent.Parent] -= 1
+	end)
 end
 
-function GUIController:RemoveWorkerButton(adornee)
+function GUIController:RemoveBillboardButton(adornee, name)
 	local parent = false
 	for _, v in pairs(self.ScreenGui:GetChildren()) do
 		if v:IsA("BillboardGui") and v.Adornee == adornee.BaseTile then
@@ -365,11 +374,11 @@ function GUIController:RemoveWorkerButton(adornee)
 	end
 
 	if not parent then
-		error("Can't find settlement billboard to place button on.")
+		error("Can't find settlement billboard to remove button from.")
 		return false
 	end
 
-	local button = parent:FindFirstChild("AddWorker")
+	local button = parent:FindFirstChild(name)
 
 	if button then
 		button:Destroy()
@@ -962,12 +971,12 @@ function GUIController:CreateErrorPopup(message)
 end
 
 function GUIController:OnPlayerInit()
-	self.SettlementService.AddWorkerButton:Connect(function(...)
-		self:CreateWorkerButton(...)
+	self.SettlementService.AddWorkerButton:Connect(function(adornee)
+		self:CreateBillboardButton(adornee, "Hammer", nil, 25)
 	end)
 
-	self.SettlementService.RemoveWorkerButton:Connect(function(...)
-		self:RemoveWorkerButton(...)
+	self.SettlementService.RemoveWorkerButton:Connect(function(adornee)
+		self:RemoveBillboardButton(adornee, "Hammer")
 	end)
 
 	self.SettlementService.AddSettlementBillboard:Connect(function(...)
