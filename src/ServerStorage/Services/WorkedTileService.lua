@@ -83,7 +83,7 @@ function WorkedTileService:WorkTile(player, tile, settlement, pivot)
 		return false
 	end
 
-	if not (#self:GetWorkedTiles(settlement) < math.floor(Tiles.Main[settlement.Name].capacity / 2) + 0.5) then
+	if not (#self:GetWorkedTiles(settlement) < math.floor((Tiles.Main[settlement.Name].capacity+1) / 2)) then
 		warn("You've already claimed the maximum amount of tiles!")
 		return false
 	end
