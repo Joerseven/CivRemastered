@@ -22,6 +22,7 @@ local SettlementService = Knit.CreateService({
 	Client = {
 		AddWorkerButton = Knit.CreateSignal(),
 		RemoveWorkerButton = Knit.CreateSignal(),
+		AddSettlerButton = Knit.CreateSignal(),
 		AddSettlementBillboard = Knit.CreateSignal(),
 		UpdateWorkers = Knit.CreateSignal(),
 	},
@@ -206,6 +207,7 @@ function SettlementService:LevelUp(s, pWorkspace)
 
 	self:CreateBillboard(s.tile)
 	self:UpdateClaimed(s.tile)
+	self:CheckSettlers(s.tile)
 	s.workers:UpdateWorkers()
 
 	-- local attributes = settlement:GetAttributes()
@@ -221,6 +223,19 @@ function SettlementService:LevelUp(s, pWorkspace)
 end
 
 function SettlementService:AddSupplies() end
+
+function SettlementService:CheckSettlers(settlement)
+	local settlers = settlement:GetAttribute("settlers") or 0
+	local level = Tiles.Main[settlement.Name].capacity
+
+	local possibleSettlers = math.floor(level/5) - settlers
+
+	print(possibleSettlers)
+
+	if possibleSettlers > 0 then
+		self.Client.AddSettlerButton:FireAll(settlement)
+	end
+end
 
 function SettlementService:Add(position, pWorkspace, basetile, level, attributes, workspacePlayerId, player)
 	local s = {}
@@ -282,6 +297,7 @@ function SettlementService:Add(position, pWorkspace, basetile, level, attributes
 	self.Settlements[workspacePlayerId][s.tile:GetAttribute("name")] = s
 	self:CreateBillboard(s.tile)
 
+	self:CheckSettlers(s.tile)
 	s.workers:UpdateWorkers()
 end
 

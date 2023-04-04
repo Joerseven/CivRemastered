@@ -289,6 +289,11 @@ function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, fac
 	self:CreateBillboardButton(adornee, "Hammer", nil, 25)
 end
 
+local billboardButtons = {
+	Hammer = "10555583305",
+	Wagon = "12989680239",
+}
+
 function GUIController:CreateBillboardButton(adornee, buttonName, buttonClick, rotation)
 	local parent = false
 	for _, v in pairs(self.ScreenGui:GetChildren()) do
@@ -302,7 +307,7 @@ function GUIController:CreateBillboardButton(adornee, buttonName, buttonClick, r
 		return false
 	end
 
-	if parent:FindFirstChild("Hammer") then
+	if parent:FindFirstChild(buttonName) then
 		warn("A button already exists")
 		return
 	end
@@ -312,11 +317,6 @@ function GUIController:CreateBillboardButton(adornee, buttonName, buttonClick, r
 	local colors = {
 		work = Color3.new(1, 0.8, 0.2),
 		active = Color3.fromRGB(60, 179, 113),
-	}
-
-	local imgUrl = {
-		Hammer = "10555583305",
-		Wagon = "12989680239",
 	}
 
 	local frame = Component:new("Frame", parent)
@@ -339,7 +339,7 @@ function GUIController:CreateBillboardButton(adornee, buttonName, buttonClick, r
 		:TransparentBackground()
 		:Name(buttonName)
 		:Constrain()
-		:ImageUrl(imgUrl[buttonName])
+		:ImageUrl(billboardButtons[buttonName])
 		:Position(0.5, 0.5)
 		:RSize(0.6, 0.6)
 		:Anchor(Vector2.new(0.5, 0.5))
@@ -352,12 +352,16 @@ function GUIController:CreateBillboardButton(adornee, buttonName, buttonClick, r
 
 	frame:Mount()
 
+	local onSelected = function()
+		frame:BackgroundColor(colors.active)
+	end
+
+	local onDeselect = function()
+		frame:BackgroundColor(colors.work)
+	end
+
 	button.i.MouseButton1Click:Connect(function()
-		self.SelectionController:WorkSelection(function() -- On init function
-			frame:BackgroundColor(colors.active)
-		end, function()
-			frame:BackgroundColor(colors.work)
-		end, adornee)
+		buttonClick(onSelected, onDeselect, adornee)
 	end)
 
 	button.i.Destroying:Connect(function()
@@ -381,7 +385,17 @@ function GUIController:RemoveBillboardButton(adornee, name)
 	local button = parent:FindFirstChild(name)
 
 	if button then
+		local n = 0
 		button:Destroy()
+		for _, v in pairs(parent:GetChildren()) do
+			for k in pairs(billboardButtons) do
+				if v.Name == k then
+					v.Position = UDim2.fromScale(1 - 0.25 * n, 0)
+					n += 1
+					break
+				end
+			end
+		end
 	end
 end
 
@@ -971,12 +985,24 @@ function GUIController:CreateErrorPopup(message)
 end
 
 function GUIController:OnPlayerInit()
+
+	local workerButtonClick = function(onSelected, onDeselect, adornee)
+		self.SelectionController:WorkSelection(onSelected, onDeselect, adornee)
+	end
+
+	local settlerButtonClick = function()
+	end
+
 	self.SettlementService.AddWorkerButton:Connect(function(adornee)
-		self:CreateBillboardButton(adornee, "Hammer", nil, 25)
+		self:CreateBillboardButton(adornee, "Hammer", workerButtonClick, 25)
 	end)
 
 	self.SettlementService.RemoveWorkerButton:Connect(function(adornee)
 		self:RemoveBillboardButton(adornee, "Hammer")
+	end)
+
+	self.SettlementService.AddSettlerButton:Connect(function(adornee)
+		self:CreateBillboardButton(adornee, "Wagon", settlerButtonClick, 0)
 	end)
 
 	self.SettlementService.AddSettlementBillboard:Connect(function(...)
