@@ -870,7 +870,6 @@ function GUIController:CreateGridIcon(parent)
 		:TransparentBackground()
 		:ImageColor(Color3.new(0.4, 0.4, 0.4))
 
-	local gridOn = false
 	local gridFrame
 	local tweenPromise
 
@@ -879,7 +878,7 @@ function GUIController:CreateGridIcon(parent)
 			tweenPromise:cancel()
 		end
 
-		if gridOn then
+		if self.InputController.UseGrid then
 			gridButton.i.ImageColor3 = Color3.new(0.4, 0.4, 0.4)
 			tweenPromise = self.TweenController:MultiTween(0.25, {
 				object = bar.i,
@@ -891,7 +890,7 @@ function GUIController:CreateGridIcon(parent)
 				target = Color3.new(1, 1, 1),
 			}
 			)
-			gridOn = false
+			self.InputController.UseGrid = false
 		else
 			gridButton.i.ImageColor3 = Color3.new(1, 1, 1)
 			tweenPromise = self.TweenController:MultiTween(0.25, {
@@ -904,7 +903,7 @@ function GUIController:CreateGridIcon(parent)
 				target = Config.ActiveColor,
 			}
 			)
-			gridOn = true
+			self.InputController.UseGrid = true
 		end
 
 		tweenPromise:andThen(function()
