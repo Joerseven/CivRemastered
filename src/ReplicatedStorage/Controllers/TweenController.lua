@@ -421,6 +421,9 @@ function TweenController:NewGrowTween(options)
 	t.pData = {}
 
 	for k, v in ipairs(t.parts) do
+		if v == t.object.PrimaryPart then
+			continue
+		end
 		if v:IsA("BasePart") and v ~= t.object.PrimaryPart then
 			t.pData[k] = { v.Position, v.Size, v.Position.Y - t.scalePoint.Y }
 			v.Transparency = 0
@@ -430,11 +433,18 @@ function TweenController:NewGrowTween(options)
 
 	function t:updateT(T)
 		for k, v in ipairs(self.parts) do
-			if v:IsA("BasePart") and v ~= self.object.PrimaryPart then
-				v.Transparency = 0
-				local offset = self.pData[k][3]
-				offset *= T
-				v.Position = Vector3.new(v.Position.X, self.scalePoint.Y + offset, v.Position.Z)
+			if v == self.object.PrimaryPart or not v:IsA("BasePart") then
+				continue
+			end
+
+			v.Transparency = 0
+			local offset = self.pData[k][3]
+			offset *= T
+			v.Position = Vector3.new(v.Position.X, self.scalePoint.Y + offset, v.Position.Z)
+
+			if v:IsA("MeshPart") then
+				v.Size = Vector3.new(v.Size.X, self.pData[k][2].Y * T, v.Size.Z)
+			elseif v:IsA("Part")then
 				if v.Shape == Enum.PartType.Ball then
 					v.Size = Vector3.new(self.pData[k][2].Y * T, self.pData[k][2].Y * T, self.pData[k][2].Y * T)
 				else

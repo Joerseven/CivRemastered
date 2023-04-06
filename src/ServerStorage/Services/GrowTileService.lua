@@ -63,7 +63,7 @@ function GrowTileService:GrowTile(player, base)
 
 	base.Name = "Destroying"
 
-	local tile = self:Add(tileinfo.grow, base.Parent, CFrame.new(base.Position), function(tile) end)
+	local tile = self:Add(tileinfo.grow, base.Parent, CFrame.new(base:GetPivot().Position), function(tile) end)
 
 	local interruptedTween = tile.Destroying:Connect(function()
 		if base then
