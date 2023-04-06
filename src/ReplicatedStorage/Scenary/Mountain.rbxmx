@@ -2,7 +2,7 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Model" referent="RBX55548D299F374E2AA6535DE16448E786">
+	<Item class="Model" referent="RBXE82AC5006246466A9AE579D2B7334642">
 		<Properties>
 			<BinaryString name="AttributesSerialize"><![CDATA[BwAAAAUAAABjbGFpbQIPAAAATW91bnRhaW5DbGFpbWVkDAAAAGludGVyYWN0YWJsZQMBAwAA
 AG9pbAMABAAAAHBhdGgDAAkAAAByYWlzZVRpbGUCBwAAAFZvbGNhbm8GAAAAc2V0dGxlAwAG
@@ -31,7 +31,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 			<token name="ModelStreamingMode">0</token>
 			<string name="Name">Mountain</string>
 			<bool name="NeedsPivotMigration">false</bool>
-			<Ref name="PrimaryPart">null</Ref>
+			<Ref name="PrimaryPart">RBX6506813B0147417CAEB6BB383C3BECEB</Ref>
 			<float name="ScaleFactor">1</float>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
@@ -52,7 +52,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				</CFrame>
 			</OptionalCoordinateFrame>
 		</Properties>
-		<Item class="Model" referent="RBXCE9043ED002B4EA69139AA9C3331AAE7">
+		<Item class="Model" referent="RBXC08BBD19D2DE418CA9D59F29127ADD34">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -83,9 +83,24 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				<float name="ScaleFactor">1</float>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<OptionalCoordinateFrame name="WorldPivotData"></OptionalCoordinateFrame>
+				<OptionalCoordinateFrame name="WorldPivotData">
+					<CFrame>
+						<X>-7.47284985</X>
+						<Y>-174.327728</Y>
+						<Z>-48.5007553</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CFrame>
+				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="CornerWedgePart" referent="RBX82E057ABE1724ADB81EC6641C24EEF85">
+			<Item class="CornerWedgePart" referent="RBX3F97DB801F5742BE830DBA15E1DD6D43">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -177,7 +192,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBXA4E0D7E1FF8743A69E7300BEA949F10A">
+				<Item class="PathfindingModifier" referent="RBX0F6B3AA1B40743149ACEE8376183E7F9">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -188,7 +203,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="CornerWedgePart" referent="RBX863401E404194291AFF000252D182462">
+			<Item class="CornerWedgePart" referent="RBXD2A4DD36E9AF431B98B20840A4AE5591">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -280,7 +295,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBX1861D79EB53B4E659CC51EED3E9BBDB2">
+				<Item class="PathfindingModifier" referent="RBX5E65D2467D4A450FA4888D0D83A1194F">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -291,7 +306,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="CornerWedgePart" referent="RBX202222E57CAE4644B6A138A2094880D0">
+			<Item class="CornerWedgePart" referent="RBX50E5D74FBD924C56B44D750787F7A412">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -383,7 +398,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBX618A8D67117A4F078A8BA1077185C0E7">
+				<Item class="PathfindingModifier" referent="RBX568B0C0DC1EE42A180D42A987FC94ADB">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -394,7 +409,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="CornerWedgePart" referent="RBX31A14985F2834045B3AD482B5D213E11">
+			<Item class="CornerWedgePart" referent="RBXC49F594E752C4D009A339A4C92D6594D">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -486,7 +501,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBX8174692E748948018C340213F17A2917">
+				<Item class="PathfindingModifier" referent="RBX1CF931A0A7CC4843BBA9C9F2B1442E8B">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -497,7 +512,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="WedgePart" referent="RBXD74B76B73FF44B62B19C5D4C49739BDF">
+			<Item class="WedgePart" referent="RBX4B058281ED724FCD9252131A73F14404">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -590,7 +605,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBX58B19E59663A46299313E9CF1249442C">
+				<Item class="PathfindingModifier" referent="RBXCB395092AB0B4279A4FB781F5EB35473">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -601,7 +616,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="WedgePart" referent="RBXA01F8EE6E740471DA8A90642463D5E19">
+			<Item class="WedgePart" referent="RBXF3AD22EC8DFB40BF89A1E1EA446121B8">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -694,7 +709,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBX2E3FA0FB177947CF8808D43727577FB9">
+				<Item class="PathfindingModifier" referent="RBXC3408EB8BBB7432BA6BEE65B79DF81D9">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -705,7 +720,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="WedgePart" referent="RBX97F6652A796C42CA8FA7846E2B7AEA26">
+			<Item class="WedgePart" referent="RBX94B031AA656242DB8A5F0E544A17BE4F">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -798,7 +813,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBX2E939C3AC8534DA7A6B3C056A6AE39D2">
+				<Item class="PathfindingModifier" referent="RBX938CC21DC2394226803FA2D1D227405E">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -809,7 +824,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="WedgePart" referent="RBX33C844CBF5A24EFBABB03502C754401E">
+			<Item class="WedgePart" referent="RBX14FE63DBB29A48E6BBB9F57FF87109B3">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -902,7 +917,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>1</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBXF45CAFEC6FD346519A20A81BDB51390E">
+				<Item class="PathfindingModifier" referent="RBX5D0AE876963C46A7B1DDBD9F58C294B7">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -914,7 +929,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Model" referent="RBXF6346CAABF9A49F3B517D041F4B914AD">
+		<Item class="Model" referent="RBX2138522BA13142788BB964D92343770E">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -945,9 +960,24 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				<float name="ScaleFactor">1</float>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
-				<OptionalCoordinateFrame name="WorldPivotData"></OptionalCoordinateFrame>
+				<OptionalCoordinateFrame name="WorldPivotData">
+					<CFrame>
+						<X>-7.47240305</X>
+						<Y>-173.326202</Y>
+						<Z>-48.5021515</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CFrame>
+				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="CornerWedgePart" referent="RBXD4219776F7A4455B96398F8334960E7C">
+			<Item class="CornerWedgePart" referent="RBX59B3449DD3D04CDFAF8B7F469ECCF30A">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1039,7 +1069,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>0.5</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBXEBC9E02DA6144F7A9859646BF25DB06A">
+				<Item class="PathfindingModifier" referent="RBXACCC4FB27E18466E98015547197DB896">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -1050,7 +1080,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="CornerWedgePart" referent="RBX29CBBE9AAEBB4ECA85773FD23B17D813">
+			<Item class="CornerWedgePart" referent="RBXDC3DAD2A5199451693C44845C7CC1570">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1142,7 +1172,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>0.5</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBXD4C374BEC3544F378566AC61F3685845">
+				<Item class="PathfindingModifier" referent="RBX7DF65377B14F4AC1A61E08019C550B95">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -1153,7 +1183,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="CornerWedgePart" referent="RBXCDF2D98154AA4FB1A7ECBA2A1C48C6C2">
+			<Item class="CornerWedgePart" referent="RBXAAD5C75A05004EF0A0245C406BEFD9D5">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1245,7 +1275,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>0.5</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBXFA5494D974934DE2902A7E9D1662A3A7">
+				<Item class="PathfindingModifier" referent="RBX55E2CE36F7864E1C9A30C0BE392ABF8D">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -1256,7 +1286,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="CornerWedgePart" referent="RBXBFF3DB3188FA419194B156F53FE03716">
+			<Item class="CornerWedgePart" referent="RBX75FFB6FFF9B343EE9AEC8EDB866DB264">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1348,7 +1378,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 						<Z>0.5</Z>
 					</Vector3>
 				</Properties>
-				<Item class="PathfindingModifier" referent="RBXE4A4E21027DC4770A2C3AD6A6EB3C65F">
+				<Item class="PathfindingModifier" referent="RBXA1C41955A22C46C4A75D37C3CF885EE3">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<string name="Label">NoGoZone</string>
@@ -1360,7 +1390,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				</Item>
 			</Item>
 		</Item>
-		<Item class="StringValue" referent="RBXAB7CD353AF4F4BB1B284E2A77875007C">
+		<Item class="StringValue" referent="RBX442EA6992F0A4B7396F1DEAB3315E4A0">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Clickable</string>
@@ -1369,9 +1399,9 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				<string name="Value"></string>
 			</Properties>
 		</Item>
-		<Item class="SelectionBox" referent="RBX1DFB95AC9823406BA0F90AE383A7CB9C">
+		<Item class="SelectionBox" referent="RBX17057E26500C4C41A9DFB297D8967DA7">
 			<Properties>
-				<Ref name="Adornee">RBX55548D299F374E2AA6535DE16448E786</Ref>
+				<Ref name="Adornee">RBXE82AC5006246466A9AE579D2B7334642</Ref>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<Color3 name="Color3">
 					<R>0.0509803928</R>
@@ -1381,6 +1411,7 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				<float name="LineThickness">0.0500000007</float>
 				<string name="Name">SelectionBox</string>
 				<int64 name="SourceAssetId">-1</int64>
+				<bool name="StudioSelectionBox">false</bool>
 				<Color3 name="SurfaceColor3">
 					<R>0.0509803966</R>
 					<G>0.411764741</G>
@@ -1390,6 +1421,101 @@ AAAAc3VwcGx5BgAAAAAAABBA]]></BinaryString>
 				<BinaryString name="Tags"></BinaryString>
 				<float name="Transparency">0</float>
 				<bool name="Visible">false</bool>
+			</Properties>
+		</Item>
+		<Item class="Part" referent="RBX6506813B0147417CAEB6BB383C3BECEB">
+			<Properties>
+				<bool name="Anchored">true</bool>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<float name="BackParamA">-0.5</float>
+				<float name="BackParamB">0.5</float>
+				<token name="BackSurface">0</token>
+				<token name="BackSurfaceInput">0</token>
+				<float name="BottomParamA">-0.5</float>
+				<float name="BottomParamB">0.5</float>
+				<token name="BottomSurface">0</token>
+				<token name="BottomSurfaceInput">0</token>
+				<CoordinateFrame name="CFrame">
+					<X>-7.47284937</X>
+					<Y>-175.290253</Y>
+					<Z>-48.5007553</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<bool name="CanCollide">false</bool>
+				<bool name="CanQuery">false</bool>
+				<bool name="CanTouch">true</bool>
+				<bool name="CastShadow">true</bool>
+				<string name="CollisionGroup">Default</string>
+				<int name="CollisionGroupId">0</int>
+				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
+				<PhysicalProperties name="CustomPhysicalProperties">
+					<CustomPhysics>false</CustomPhysics>
+				</PhysicalProperties>
+				<float name="FrontParamA">-0.5</float>
+				<float name="FrontParamB">0.5</float>
+				<token name="FrontSurface">0</token>
+				<token name="FrontSurfaceInput">0</token>
+				<float name="LeftParamA">-0.5</float>
+				<float name="LeftParamB">0.5</float>
+				<token name="LeftSurface">0</token>
+				<token name="LeftSurfaceInput">0</token>
+				<bool name="Locked">false</bool>
+				<bool name="Massless">false</bool>
+				<token name="Material">256</token>
+				<string name="MaterialVariantSerialized"></string>
+				<string name="Name">Part</string>
+				<CoordinateFrame name="PivotOffset">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<float name="Reflectance">0</float>
+				<float name="RightParamA">-0.5</float>
+				<float name="RightParamB">0.5</float>
+				<token name="RightSurface">0</token>
+				<token name="RightSurfaceInput">0</token>
+				<int name="RootPriority">0</int>
+				<Vector3 name="RotVelocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<float name="TopParamA">-0.5</float>
+				<float name="TopParamB">0.5</float>
+				<token name="TopSurface">0</token>
+				<token name="TopSurfaceInput">0</token>
+				<float name="Transparency">1</float>
+				<Vector3 name="Velocity">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+				</Vector3>
+				<token name="formFactorRaw">1</token>
+				<token name="shape">1</token>
+				<Vector3 name="size">
+					<X>1</X>
+					<Y>1</Y>
+					<Z>1</Z>
+				</Vector3>
 			</Properties>
 		</Item>
 	</Item>
