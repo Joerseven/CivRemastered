@@ -29,7 +29,7 @@ Tiles.Main = {
 	},
 	{ name = "Stone", service = "TileService", raise = "Mountain", canSettle = true, path = true },
 	{ name = "Farmland", service = "TileService", grow = "Farm", path = true },
-	{ name = "CactusDesert", service = "GrowTileService" },
+	{ name = "CactusDesert", service = "GrowTileService", grow = "DesertForest"},
 	{ name = "DesertRuins", service = "RaiseTileService", work = "DesertRuinsClaimed" },
 	{
 		name = "DesertRuinsClaimed",
@@ -264,6 +264,10 @@ Tiles.Main = {
 		capacity = 5,
 		--xpNext = 1024,
 	},
+	{
+		name = "DesertForest",
+		service = "GrowTileService",
+	}
 }
 
 setmetatable(Tiles.Main, {
