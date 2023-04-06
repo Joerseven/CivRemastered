@@ -73,6 +73,12 @@ function GrowTileService:GrowTile(player, base)
 
 	local duration = 2
 
+	for _, v in pairs(base:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v.Transparency = 1
+		end
+	end
+
 	task.delay(duration, function()
 		for _, v in pairs(tile:GetDescendants()) do
 			if v:IsA("BasePart") then
