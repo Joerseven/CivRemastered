@@ -189,6 +189,8 @@ function SettlementService:LevelUp(s, pWorkspace)
 
 	s.tile.Parent = pWorkspace
 
+	s.tile:SetAttribute("supplyCount", 0)
+
 	local listener
 	listener = s.tile:GetAttributeChangedSignal("supplyCount"):Connect(function()
 		local rXp = Tiles.Main[tileName].xpNext
