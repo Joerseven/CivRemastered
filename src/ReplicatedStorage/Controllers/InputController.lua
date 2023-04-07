@@ -21,7 +21,6 @@ local InputController = Knit.CreateController({
 	BroadcastHover = Signal.new(),
 	BroadcastDelayedHover = Signal.new(),
 	BroadcastDelayedMouseLeave = Signal.new(),
-	UseGrid = false,
 })
 
 function InputController:_GetValidTile(target, includeHover)
@@ -247,12 +246,6 @@ function InputController:Stepped(dt)
 end
 
 function InputController:GetCustomRaycastTarget(pWorkspace: Model)
-	if self.UseGrid then
-		local relx = self._PlacePosition.X + 1.5
-		local relz = self._PlacePosition.Z + 1.5
-		return Vector3.new(math.floor(relx - relx % 3), self._PlacePosition.Y, math.floor(relz - relz % 3))
-	end
-
 	return self._PlacePosition
 end
 

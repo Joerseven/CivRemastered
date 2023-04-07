@@ -936,64 +936,6 @@ function GUIController:CreateSettingsIcon(parent)
 	bar:Mount()
 end
 
-function GUIController:CreateGridIcon(parent)
-	local gridId = "13008153182"
-	local bar = Component:new("Frame", parent):Right(-30):Top(110):FadeBackground():Size(0, 0, 70, 70):CurveCorners(15)
-
-	local gridButton = Component:new("ImageButton", bar)
-		:ImageUrl(gridId)
-		:Size(0, 0, 39, 40)
-		:Center()
-		:Middle()
-		:TransparentBackground()
-		:ImageColor(Color3.new(0.4, 0.4, 0.4))
-
-	local gridFrame
-	local tweenPromise
-
-	local function toggleGrid()
-		if tweenPromise then
-			tweenPromise:cancel()
-		end
-
-		if self.InputController.UseGrid then
-			gridButton.i.ImageColor3 = Color3.new(0.4, 0.4, 0.4)
-			tweenPromise = self.TweenController:MultiTween(0.25, {
-				object = bar.i,
-				property = "BackgroundTransparency",
-				target = Config.BackgroundFade,
-			}, {
-				object = bar.i,
-				property = "BackgroundColor3",
-				target = Color3.new(1, 1, 1),
-			}
-			)
-			self.InputController.UseGrid = false
-		else
-			gridButton.i.ImageColor3 = Color3.new(1, 1, 1)
-			tweenPromise = self.TweenController:MultiTween(0.25, {
-				object = bar.i,
-				property = "BackgroundTransparency",
-				target = 0,
-			}, {
-				object = bar.i,
-				property = "BackgroundColor3",
-				target = Config.ActiveColor,
-			}
-			)
-			self.InputController.UseGrid = true
-		end
-
-		tweenPromise:andThen(function()
-			tweenPromise = false
-		end)
-	end
-
-	gridButton.i.MouseButton1Click:Connect(toggleGrid)
-
-	bar:Mount()
-end
-
 function GUIController:_CreateErrorBase(text)
 	local errorBox = Component:new("TextLabel", self.ScreenGui)
 		:FontColor(Color3.new(1, 1, 1))
@@ -1054,7 +996,6 @@ function GUIController:SaveLoaded()
 	end)
 	-- self:CreateActionBar(self.ScreenGui)
 	self:CreateSettingsIcon(self.ScreenGui)
-	self:CreateGridIcon(self.ScreenGui)
 end
 
 function GUIController:KnitInit()
