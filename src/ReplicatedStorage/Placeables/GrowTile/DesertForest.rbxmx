@@ -2,7 +2,7 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Model" referent="RBX463F11D8C2D248B1970DF82BB82F0068">
+	<Item class="Model" referent="RBX09A061E72FA34BC0924DE01BC7AB2629">
 		<Properties>
 			<BinaryString name="AttributesSerialize">BAAAAAwAAABpbnRlcmFjdGFibGUDAQMAAABvaWwDAQQAAABwYXRoAwEGAAAAc2V0dGxlAwA=</BinaryString>
 			<token name="LevelOfDetail">0</token>
@@ -29,14 +29,14 @@
 			<token name="ModelStreamingMode">0</token>
 			<string name="Name">DesertForest</string>
 			<bool name="NeedsPivotMigration">false</bool>
-			<Ref name="PrimaryPart">RBX1342EC76B54B4F799CE359DAA6918D84</Ref>
+			<Ref name="PrimaryPart">RBXA41705B766214896825C224268D64BE3</Ref>
 			<float name="ScaleFactor">1</float>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 			<OptionalCoordinateFrame name="WorldPivotData">
 				<CFrame>
-					<X>-10.4719868</X>
-					<Y>-175.24025</Y>
+					<X>-10.4643345</X>
+					<Y>-174.516647</Y>
 					<Z>-51.1387253</Z>
 					<R00>1</R00>
 					<R01>0</R01>
@@ -50,7 +50,7 @@
 				</CFrame>
 			</OptionalCoordinateFrame>
 		</Properties>
-		<Item class="Part" referent="RBX1342EC76B54B4F799CE359DAA6918D84">
+		<Item class="Part" referent="RBXA41705B766214896825C224268D64BE3">
 			<Properties>
 				<bool name="Anchored">true</bool>
 				<BinaryString name="AttributesSerialize"></BinaryString>
@@ -144,7 +144,7 @@
 					<Z>3</Z>
 				</Vector3>
 			</Properties>
-			<Item class="PathfindingModifier" referent="RBXC91F2D0DF7AD4C1FAE6A07CE32043E30">
+			<Item class="PathfindingModifier" referent="RBX2F540F811EE84F3499C8D22A9A5F1145">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<string name="Label">NoGoZone</string>
@@ -155,7 +155,7 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="StringValue" referent="RBXE3A629966AB8418ABA397D1EEE060560">
+		<Item class="StringValue" referent="RBXED7BF90591FF4FD485B25C9C287EC133">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Clickable</string>
@@ -164,9 +164,9 @@
 				<string name="Value"></string>
 			</Properties>
 		</Item>
-		<Item class="SelectionBox" referent="RBX4863E592A24243089258AEFA7B142618">
+		<Item class="SelectionBox" referent="RBXEBF75BAD8FDC42C2B39ECE3AD6030A94">
 			<Properties>
-				<Ref name="Adornee">RBX463F11D8C2D248B1970DF82BB82F0068</Ref>
+				<Ref name="Adornee">RBX09A061E72FA34BC0924DE01BC7AB2629</Ref>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<Color3 name="Color3">
 					<R>0.0509803928</R>
@@ -188,7 +188,7 @@
 				<bool name="Visible">false</bool>
 			</Properties>
 		</Item>
-		<Item class="Model" referent="RBX6741BB19EB26447FAD3C2DA628233BC3">
+		<Item class="Model" referent="RBXAD63A8A4A3914408B3D2BF62B5840D0B">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -236,7 +236,7 @@
 					</CFrame>
 				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="MeshPart" referent="RBX35AAC0868EC14A33816F948AC1D53C34">
+			<Item class="MeshPart" referent="RBX6F89FC2AF98A4C188F129E0A26B7CF1C">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -268,7 +268,7 @@
 					<bool name="CastShadow">true</bool>
 					<string name="CollisionGroup">Default</string>
 					<int name="CollisionGroupId">0</int>
-					<Color3uint8 name="Color3uint8">4284131418</Color3uint8>
+					<Color3uint8 name="Color3uint8">4286356587</Color3uint8>
 					<PhysicalProperties name="CustomPhysicalProperties">
 						<CustomPhysics>false</CustomPhysics>
 					</PhysicalProperties>
@@ -348,7 +348,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="MeshPart" referent="RBXB32CC7CAE16242ECB0A449A96C2ABB63">
+			<Item class="MeshPart" referent="RBX3A32D40621C743D5A0A6504B7F4CCF5C">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -461,7 +461,7 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Model" referent="RBX348D89DA36DA4C9D978B6AABD05802F8">
+		<Item class="Model" referent="RBXBD887A0CA6D742C5A7F9FCA72FD68962">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -499,17 +499,17 @@
 						<Z>-51.9499969</Z>
 						<R00>1</R00>
 						<R01>0</R01>
-						<R02>-3.15544362e-30</R02>
+						<R02>0</R02>
 						<R10>0</R10>
 						<R11>1</R11>
 						<R12>0</R12>
-						<R20>3.15544362e-30</R20>
+						<R20>0</R20>
 						<R21>0</R21>
 						<R22>1</R22>
 					</CFrame>
 				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="MeshPart" referent="RBXFA4924D88622463EB0584CCD4CA5EBC0">
+			<Item class="MeshPart" referent="RBX051276A409B648C0B46FF884A60F1170">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -527,11 +527,11 @@
 						<Z>-51.9499969</Z>
 						<R00>1</R00>
 						<R01>0</R01>
-						<R02>-3.15544362e-30</R02>
+						<R02>0</R02>
 						<R10>0</R10>
 						<R11>1</R11>
 						<R12>0</R12>
-						<R20>3.15544362e-30</R20>
+						<R20>0</R20>
 						<R21>0</R21>
 						<R22>1</R22>
 					</CoordinateFrame>
@@ -541,7 +541,7 @@
 					<bool name="CastShadow">true</bool>
 					<string name="CollisionGroup">Default</string>
 					<int name="CollisionGroupId">0</int>
-					<Color3uint8 name="Color3uint8">4284131418</Color3uint8>
+					<Color3uint8 name="Color3uint8">4286356587</Color3uint8>
 					<PhysicalProperties name="CustomPhysicalProperties">
 						<CustomPhysics>false</CustomPhysics>
 					</PhysicalProperties>
@@ -621,7 +621,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="MeshPart" referent="RBX932411D3351D4069A6F992EC838AB044">
+			<Item class="MeshPart" referent="RBXDDAD3A9428AB41189BC284340FDEFAC5">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -734,7 +734,7 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Model" referent="RBX77F026ADF78F4744BC5D3B520F43A289">
+		<Item class="Model" referent="RBXB06E694AC3FE4B2FA6A5DCD983A6ECC2">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -767,8 +767,8 @@
 				<BinaryString name="Tags"></BinaryString>
 				<OptionalCoordinateFrame name="WorldPivotData">
 					<CFrame>
-						<X>-7.79808283</X>
-						<Y>-175.05275</Y>
+						<X>-11.2284203</X>
+						<Y>-174.327866</Y>
 						<Z>-50.2232056</Z>
 						<R00>1</R00>
 						<R01>0</R01>
@@ -782,7 +782,7 @@
 					</CFrame>
 				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="MeshPart" referent="RBX80D5D1CE44494999A23A55593C8A6ECF">
+			<Item class="MeshPart" referent="RBX8DF15D465C0245AFBBF6B7D6A7D7C3AF">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -814,7 +814,7 @@
 					<bool name="CastShadow">true</bool>
 					<string name="CollisionGroup">Default</string>
 					<int name="CollisionGroupId">0</int>
-					<Color3uint8 name="Color3uint8">4284131418</Color3uint8>
+					<Color3uint8 name="Color3uint8">4286356587</Color3uint8>
 					<PhysicalProperties name="CustomPhysicalProperties">
 						<CustomPhysics>false</CustomPhysics>
 					</PhysicalProperties>
@@ -894,7 +894,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="MeshPart" referent="RBX0E94E917F5E943449165409CE25E1D13">
+			<Item class="MeshPart" referent="RBX85641296230847D19FFD3A71B09B6672">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1007,7 +1007,7 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Model" referent="RBXECE2679869EA47E4BCFDB1C2DF2F8676">
+		<Item class="Model" referent="RBX455E1FA8CE274DE196F7CDE8E9811B04">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -1040,10 +1040,10 @@
 				<BinaryString name="Tags"></BinaryString>
 				<OptionalCoordinateFrame name="WorldPivotData">
 					<CFrame>
-						<X>-9.5507679</X>
-						<Y>-174.969437</Y>
-						<Z>-50.9899788</Z>
-						<R00>-3.15544362e-30</R00>
+						<X>-9.5509882</X>
+						<Y>-174.519058</Y>
+						<Z>-50.3339424</Z>
+						<R00>0</R00>
 						<R01>0</R01>
 						<R02>-1</R02>
 						<R10>0</R10>
@@ -1051,11 +1051,11 @@
 						<R12>0</R12>
 						<R20>1</R20>
 						<R21>0</R21>
-						<R22>-3.15544362e-30</R22>
+						<R22>0</R22>
 					</CFrame>
 				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="MeshPart" referent="RBX4B530BF93DCF4194B8D91C79029B0C3F">
+			<Item class="MeshPart" referent="RBXC82A3C91EB79462A910C5B5521233F04">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1087,7 +1087,7 @@
 					<bool name="CastShadow">true</bool>
 					<string name="CollisionGroup">Default</string>
 					<int name="CollisionGroupId">0</int>
-					<Color3uint8 name="Color3uint8">4284131418</Color3uint8>
+					<Color3uint8 name="Color3uint8">4286356587</Color3uint8>
 					<PhysicalProperties name="CustomPhysicalProperties">
 						<CustomPhysics>false</CustomPhysics>
 					</PhysicalProperties>
@@ -1167,7 +1167,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="MeshPart" referent="RBX2070A37579BB42E39B7571802F3D7E55">
+			<Item class="MeshPart" referent="RBX0C4098B9F75A4293A85D3A400F52DF82">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1280,7 +1280,7 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Model" referent="RBXE7A7307A82DB499FA5B9C7C6FFA256CC">
+		<Item class="Model" referent="RBX5C8E94E0195C4E3B83A360BBE31C154C">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -1313,22 +1313,22 @@
 				<BinaryString name="Tags"></BinaryString>
 				<OptionalCoordinateFrame name="WorldPivotData">
 					<CFrame>
-						<X>-10.6091843</X>
-						<Y>-174.97142</Y>
-						<Z>-50.4314919</Z>
-						<R00>3.15544362e-30</R00>
+						<X>-10.6089649</X>
+						<Y>-174.521057</Y>
+						<Z>-51.0875282</Z>
+						<R00>0</R00>
 						<R01>0</R01>
 						<R02>1</R02>
 						<R10>0</R10>
 						<R11>1</R11>
-						<R12>0</R12>
+						<R12>-0</R12>
 						<R20>-1</R20>
 						<R21>0</R21>
-						<R22>3.15544362e-30</R22>
+						<R22>0</R22>
 					</CFrame>
 				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="MeshPart" referent="RBX9863C72CFA1A4104BB6167C575260DA7">
+			<Item class="MeshPart" referent="RBX089C27422631458D841FD2146BF351E0">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1349,7 +1349,7 @@
 						<R02>1</R02>
 						<R10>0</R10>
 						<R11>1</R11>
-						<R12>0</R12>
+						<R12>-0</R12>
 						<R20>-1</R20>
 						<R21>0</R21>
 						<R22>0</R22>
@@ -1360,7 +1360,7 @@
 					<bool name="CastShadow">true</bool>
 					<string name="CollisionGroup">Default</string>
 					<int name="CollisionGroupId">0</int>
-					<Color3uint8 name="Color3uint8">4284131418</Color3uint8>
+					<Color3uint8 name="Color3uint8">4286356587</Color3uint8>
 					<PhysicalProperties name="CustomPhysicalProperties">
 						<CustomPhysics>false</CustomPhysics>
 					</PhysicalProperties>
@@ -1440,7 +1440,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="MeshPart" referent="RBX24AC6A41B0BD4855931EE30E047428DE">
+			<Item class="MeshPart" referent="RBXB110C1B0E7BC427787126A6CC3AC058A">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1461,7 +1461,7 @@
 						<R02>1</R02>
 						<R10>0</R10>
 						<R11>1</R11>
-						<R12>0</R12>
+						<R12>-0</R12>
 						<R20>-1</R20>
 						<R21>0</R21>
 						<R22>0</R22>
