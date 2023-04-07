@@ -244,7 +244,12 @@ function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, fac
 
 	frame.i.Corners.CornerRadius = UDim.new(0.2, 0)
 
-	local barsize = math.min(adornee:GetAttribute("supplyCount") / self:LevelToXP(adornee.Name), 1)
+	local function getBarSize()
+		local barsize = math.min((adornee:GetAttribute("supplyCount") / self:LevelToXP(adornee.Name) * 0.87), 0.87)
+		return barsize
+	end
+
+	local barsize = getBarSize()
 
 	local name = Component:new("TextLabel", frame)
 		:Anchor(Vector2.new(0, 0.5))
@@ -267,6 +272,7 @@ function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, fac
 		:CurveCorners(999999)
 		:BringForward(-4)
 		:Mount()
+		:Position(0.13,0)
 
 	local level = Component:new("TextLabel", containerFrame)
 		:RCircle(1.5)
@@ -287,7 +293,7 @@ function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, fac
 
 	adornee.AttributeChanged:Connect(function(attribute)
 		if attribute == "supplyCount" then
-			xpbar:RSize(math.min(adornee:GetAttribute("supplyCount") / self:LevelToXP(adornee.Name), 1), 0.2)
+			xpbar:RSize(getBarSize(), 0.2)
 		end
 	end)
 
