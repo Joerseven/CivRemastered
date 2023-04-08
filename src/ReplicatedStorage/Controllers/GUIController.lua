@@ -25,6 +25,7 @@ local GUIController = Knit.CreateController({
 	SwitchTimer = 0,
 	LastTask = function() end,
 	CurrentHover = Instance.new("BillboardGui"),
+	TileActive = "",
 })
 
 local activateSound = Instance.new("Sound")
@@ -53,18 +54,17 @@ function GUIController:SwitchSelected(name, frame, changeTitleText)
 	name = name or ""
 
 	local tween
-	local active = ""
 
 	local deactivate = function()
 		tween:Finish()
 		frame:TransparentBackground():RoundedSquare(0)
 		changeTitleText(DEFAULTTITLE)
-		active = ""
+		self.TileActive = ""
 		--SoundService:PlayLocalSound(deactivateSound)
 	end
 
 	local activate = function()
-		if active == name then
+		if self.TileActive == name then
 			deactivate()
 			return
 		end
@@ -78,7 +78,7 @@ function GUIController:SwitchSelected(name, frame, changeTitleText)
 		})
 		changeTitleText(name)
 		SoundService:PlayLocalSound(activateSound)
-		active = name
+		self.TileActive = name
 	end
 
 	if name == "Settlement" then
@@ -496,6 +496,10 @@ function GUIController:CreateTileBar(parent)
 		end
 
 		image.i.MouseButton1Click:Connect(function()
+			if image.i.Name == self.TileActive then
+				self.SelectionController:CancelSelection()
+				return
+			end
 			self:SwitchSelected(image.i.Name, frame, changeTitleText)
 		end)
 
