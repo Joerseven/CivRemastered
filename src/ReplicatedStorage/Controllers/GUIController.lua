@@ -286,7 +286,7 @@ function GUIController:CreateBillboard(adornee: Model | { BaseTile: Model }, fac
 		end
 	end)
 
-	self:CreateBillboardButton(adornee, "Hammer", nil, 25)
+	--self:CreateBillboardButton(adornee, "Hammer", nil, 25)
 end
 
 local billboardButtons = {

@@ -2,11 +2,19 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Knit = require(ReplicatedStorage.Packages.Knit)
 
+type Node = { [PVInstance] : number }
+type Graph = { [Instance]: { Node }}
+
+type IslandList = {[number]: { PVInstance }}
+type IslandPointers = {[PVInstance]: number}
+
 local PathfindingService = Knit.CreateService({
 	Name = "PathfindingService",
 	-- Instance as a key, value as a table of connections which hold the instance it's connected to and the weight of the node
 	Graph = {},
 	Client = {},
+	Islands = {},
+	TileToIsland = {},
 })
 
 local function reverseTable(t: { any }): { any }
@@ -93,55 +101,123 @@ end
 function PathfindingService:PlayerAdded(player: Player)
 	local pWorkspace = self.WorkspaceService:getPlayerWorkspace(player)
 	self.Graph[pWorkspace] = {}
+	self.IslandToTile[pWorkspace] = {}
+	self.TileToIsland[pWorkspace] = {}
+	-- task.delay(10, function()
+	-- 	self:CreateMarkersOverGraph()
+	-- end)
 end
 
-function PathfindingService:AddNode(object, pWorkspace)
-	local part: Part = self:SyncModelPart(object)
+function PathfindingService:PlayerRemoving(player: Player)
+	local pWorkspace = self.WorkspaceService:getPlayerWorkspace(player)
+	self.Graph[pWorkspace] = nil
+	self.IslandToTile[pWorkspace] = nil
+	self.TileToIsland[pWorkspace] = nil
+end
 
-	if self.Graph[pWorkspace][part] then
+function PathfindingService:CreateMarkersOverGraph()
+	for _, graph in pairs(self.Graph) do
+		for part in pairs(graph) do
+			local marker = Instance.new("Part", part.Parent)
+			marker.Name = "Marker"
+			marker.Size = Vector3.new(1, 1, 1)
+			marker.Position = part:GetPivot().Position + Vector3.new(0, 0.5, 0)
+			marker.Anchored = true
+			marker.CanCollide = false
+			marker.Transparency = 0.5
+			marker.Color = Color3.fromRGB(0, 255, 0)
+		end
+	end
+end
+
+function PathfindingService:AddNode(object: PVInstance, pWorkspace)
+
+	local graph: Graph = self.Graph[pWorkspace]
+
+	if graph[object] then
+		warn("This is already a node!")
 		return
 	end
 
-	self.Graph[pWorkspace][part] = {}
-	local connection = part.Touched:Connect(function() end)
+	graph[object] = {}
 
-	for _, touchingPart in pairs(part:GetTouchingParts()) do
-		if self.Graph[pWorkspace][touchingPart] then
-			local distance = (part.Position - touchingPart.Position).Magnitude
-			self.Graph[pWorkspace][touchingPart][part] = distance
-			self.Graph[pWorkspace][part][touchingPart] = distance
+	local basePart: Part = object
+
+	if object:IsA("Model") then
+		basePart = object.PrimaryPart
+	end
+
+	local connection = basePart.Touched:Connect(function() end)
+
+	local touchingParts = basePart:GetTouchingParts()
+
+	local islands: IslandList = self.Islands[pWorkspace]
+	local tileToIslands: IslandPointers = self.TileToIsland[pWorkspace]
+
+	local currentIsland = nil
+
+	if #touchingParts == 0 then
+		local islandNumber = #islands + 1
+		islands[islandNumber] = { object }
+		tileToIslands[object] = islandNumber
+	else
+		currentIsland = tileToIslands[touchingParts[1]]
+		table.insert(islands[currentIsland], object)
+	end
+
+	for _, touchingPart in pairs(touchingParts) do
+
+		local objectToCheck = false
+
+		if graph[touchingPart] then
+			objectToCheck = touchingPart
+		elseif graph[touchingPart.Parent] then
+			objectToCheck = touchingPart.Parent
+		else
+			continue
+		end
+
+		local distance = (basePart.Position - touchingPart.Position).Magnitude
+		graph[object][objectToCheck] = distance
+		graph[objectToCheck][object] = distance
+
+		if tileToIslands[touchingPart] ~= currentIsland then
+			local islandToMerge = tileToIslands[touchingPart]
+			for _, part in pairs(islands[islandToMerge]) do
+				tileToIslands[part] = currentIsland
+				table.insert(islands[currentIsland], part)
+			end
+			islands[islandToMerge] = nil
 		end
 	end
 
 	connection:Disconnect()
 end
 
-function PathfindingService:UpdateNode(oldObject, newObject, pWorkspace)
-	local newPart = self:SyncModelPart(newObject)
-	local oldPart = self:SyncModelPart(oldObject)
-
-	for index in pairs(self.Graph[pWorkspace][oldPart]) do
-		self.Graph[pWorkspace][index][newPart] = self.Graph[pWorkspace][index][oldPart]
-		self.Graph[pWorkspace][index][oldPart] = nil
-	end
-
-	self.Graph[pWorkspace][newPart] = self.Graph[pWorkspace][oldPart]
-	self.Graph[pWorkspace][oldPart] = nil
-end
-
 function PathfindingService:RemoveNode(object, pWorkspace)
-	local part: Part = self:SyncModelPart(object)
-
-    if not self.Graph[pWorkspace][part] then
-        return
-    end
-
-	for index in pairs(self.Graph[pWorkspace][part]) do
-		self.Graph[pWorkspace][index][part] = nil
+	if not self.Graph[pWorkspace][object] then
+		warn("Trying to delete a node that isn't there")
+		return
 	end
 
-	self.Graph[pWorkspace][part] = nil
+	for index in pairs(self.Graph[pWorkspace][object]) do
+		self.Graph[pWorkspace][index][object] = nil
+	end
+
+	self.Graph[pWorkspace][object] = nil
 end
+
+function PathfindingService:UpdateNode(oldObject, newObject, pWorkspace)
+
+	for index in pairs(self.Graph[pWorkspace][oldObject]) do
+		self.Graph[pWorkspace][index][newObject] = self.Graph[pWorkspace][index][oldObject]
+		self.Graph[pWorkspace][index][oldObject] = nil
+	end
+
+	self.Graph[pWorkspace][newObject] = self.Graph[pWorkspace][oldObject]
+	self.Graph[pWorkspace][oldObject] = nil
+end
+
 
 function PathfindingService:PrintGraph()
 	print(self.Graph)

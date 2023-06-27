@@ -191,6 +191,11 @@ function SettlementService:LevelUp(s, pWorkspace)
 
 	s.tile.Parent = pWorkspace
 
+	self.PathfindingService:AddNode(s.tile, pWorkspace)
+	s.tile.Destroying:Connect(function()
+		self.PathfindingService:RemoveNode(s.tile, pWorkspace)
+	end)
+
 	local listener
 	listener = s.tile:GetAttributeChangedSignal("supplyCount"):Connect(function()
 		local rXp = Tiles.Main[tileName].xpNext
@@ -260,12 +265,13 @@ function SettlementService:Add(position, pWorkspace, basetile, level, attributes
 	basetile:SetAttribute("name", basetile.Name)
 	basetile.Name = "BaseTile"
 	basetile.Parent = s.tile
+	s.tile.PrimaryPart = basetile
 
 	s.tile.Parent = pWorkspace
 
-	self.PathfindingService:AddNode(basetile, pWorkspace)
+	self.PathfindingService:AddNode(s.tile, pWorkspace)
 	s.tile.Destroying:Connect(function()
-		self.PathfindingService:RemoveNode(basetile, pWorkspace)
+		self.PathfindingService:RemoveNode(s.tile, pWorkspace)
 	end)
 
 	s.workers = WorkerManager.new(s, self.FactionService:GetSettlementFactionColor(s.tile), function()
@@ -296,7 +302,7 @@ function SettlementService:Add(position, pWorkspace, basetile, level, attributes
 
 	self.Settlements[workspacePlayerId][s.tile:GetAttribute("name")] = s
 	self:CreateBillboard(s.tile)
-
+	self:UpdateClaimed(s.tile)
 	self:CheckSettlers(s.tile)
 	s.workers:UpdateWorkers()
 end

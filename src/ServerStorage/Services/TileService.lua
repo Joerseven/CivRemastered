@@ -131,8 +131,6 @@ function TileService:DeleteTile(player, tile, finsert)
 
 	self:_CreateExplosion(self:_GetPosition(tile))
 
-	self.PathfindingService:RemoveNode(tile, tile.Parent)
-
 	tile:Destroy()
 
 	return true
