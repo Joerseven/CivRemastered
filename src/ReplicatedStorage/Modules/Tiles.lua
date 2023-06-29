@@ -64,7 +64,7 @@ Tiles.Main = {
 			},
 		},
 	},
-	{ name = "Forest", service = "GrowTileService", work = "ForestClaimed" },
+	{ name = "Forest", service = "GrowTileService", work = "ForestClaimed", grow = "RainForest" },
 	{
 		name = "ForestClaimed",
 		service = "WorkedTileService",
@@ -266,6 +266,10 @@ Tiles.Main = {
 	},
 	{
 		name = "DesertForest",
+		service = "GrowTileService",
+	},
+	{
+		name = "RainForest",
 		service = "GrowTileService",
 	}
 }
